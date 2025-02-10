@@ -44,6 +44,8 @@ void RenderUI(const ImVec2& parentWindowPos)
     static ImVec2 gridOffset = ImVec2(50, 50);
     ImVec2 gridPos = ImVec2(parentWindowPos.x + gridOffset.x, parentWindowPos.y + gridOffset.y);
 
+    ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(bgColor.x, bgColor.y, bgColor.z, bgColor.w));  // Apply color change to this window only
+
     ImGui::Begin("Grid Controls");
 
     // Adjust grid offset instead of absolute position
@@ -62,18 +64,16 @@ void RenderUI(const ImVec2& parentWindowPos)
 
     ImGui::End();
 
+    ImGui::PopStyleColor();  // Revert the style change to prevent affecting other windows
+
     // Convert ImVec4 color to ImColor
     ImColor thinImColor = ImColor(thinColor.x, thinColor.y, thinColor.z, thinColor.w);
     ImColor boldImColor = ImColor(boldColor.x, boldColor.y, boldColor.z, boldColor.w);
-    ImColor backgroundImColor = ImColor(bgColor.x, bgColor.y, bgColor.z, bgColor.w);
-
-    // Set the background color before drawing the grid
-    ImDrawList* draw_list = ImGui::GetBackgroundDrawList();
-    draw_list->AddRectFilled(ImVec2(0, 0), ImGui::GetIO().DisplaySize, backgroundImColor);
 
     // Draw the grid with user-defined colors
     ImGraph::DrawGrid(gridPos, width, height, mmSpacing, cmSpacing, thinImColor, thinThickness, boldImColor, boldThickness);
 }
+
 
 
 

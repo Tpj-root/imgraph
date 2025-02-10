@@ -135,19 +135,39 @@ int main(int, char**)
             ImGui::End();
         }
 
+
+
+
+        //ImVec4 bgColor = ImVec4(0.2f, 0.2f, 0.2f, 1.0f);  // Declare bgColor
+
         if (show_another_window)
-        	{
-        	    ImGui::Begin("Another Window", &show_another_window);
-        	
-        	    // Get the position of "Another Window"
-        	    ImVec2 windowPos = ImGui::GetWindowPos();
-        	
-        	    // Call RenderUI with window position
-        	    RenderUI(windowPos);
-        	
-        	    ImGui::End();
-        	}
+        {
+            // Declare bgColor globally or within the function scope
+            static ImVec4 bgColor = ImVec4(0.2f, 0.2f, 0.2f, 1.0f); // Default color
         
+            // Push the desired background color for "Another Window"
+            ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(bgColor.x, bgColor.y, bgColor.z, bgColor.w));
+        
+            ImGui::Begin("Another Window", &show_another_window);
+        
+            // Color picker for background color inside the window
+            ImGui::ColorEdit4("Background Color", (float*)&bgColor);
+        
+            // Get the position of "Another Window"
+            ImVec2 windowPos = ImGui::GetWindowPos();
+        
+            // Call RenderUI with window position
+            RenderUI(windowPos);
+        
+            ImGui::End();
+        
+            // Pop the style color to revert to the default
+            ImGui::PopStyleColor();
+        }
+
+
+
+
 
 
         // Rendering
