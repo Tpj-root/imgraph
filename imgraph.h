@@ -20,9 +20,14 @@ namespace ImGraph {
         void DrawGrid(const ImVec2& origin, float width, float height, float mmSpacing, float cmSpacing, 
                   const ImColor& thinColor, float thinThickness, 
                   const ImColor& boldColor, float boldThickness);
+        void DrawDotPattern(const ImVec2& origin, float width, float height, float dotSpacingX, float dotSpacingY, 
+                        const ImColor& dotColor, float dotRadius);
+
 }
 
 void RenderUI(const ImVec2& parentWindowPos);
+void RenderUI_Dot(const ImVec2& parentWindowPos);
+
 // #ifdef IMGRAPH_DEMO
 // void Demo_Imgraph() {
 //     // Function implementation here

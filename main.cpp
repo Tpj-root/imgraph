@@ -157,7 +157,9 @@ int main(int, char**)
             ImVec2 windowPos = ImGui::GetWindowPos();
         
             // Call RenderUI with window position
-            RenderUI(windowPos);
+
+            //RenderUI(windowPos);
+            RenderUI_Dot(windowPos);
         
             ImGui::End();
         
