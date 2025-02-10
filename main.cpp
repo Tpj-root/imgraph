@@ -135,27 +135,19 @@ int main(int, char**)
             ImGui::End();
         }
 
-        // 3. Show another simple window.
         if (show_another_window)
-        {
-            ImGui::Begin("Another Window", &show_another_window);
+        	{
+        	    ImGui::Begin("Another Window", &show_another_window);
+        	
+        	    // Get the position of "Another Window"
+        	    ImVec2 windowPos = ImGui::GetWindowPos();
+        	
+        	    // Call RenderUI with window position
+        	    RenderUI(windowPos);
+        	
+        	    ImGui::End();
+        	}
         
-            // Get the position and size of the window
-            ImVec2 windowPos = ImGui::GetWindowPos();
-            ImVec2 windowSize = ImGui::GetWindowSize();
-        
-            // Get the draw list to draw directly on the window
-            ImDrawList* drawList = ImGui::GetWindowDrawList();
-        
-            // Draw a white rectangle for the background
-            drawList->AddRectFilled(windowPos, ImVec2(windowPos.x + windowSize.x, windowPos.y + windowSize.y), IM_COL32(255, 255, 255, 255));
-        
-            // Adjust the grid position
-            ImVec2 gridPos = ImVec2(windowPos.x + 50, windowPos.y + 50);  // Adjust as needed
-            ImGraph::DrawGrid(gridPos, 400, 400, 10.0f, 100.0f, ImGraph::red, 1.0f, 2.5f);
-        
-            ImGui::End();
-        }
 
 
         // Rendering

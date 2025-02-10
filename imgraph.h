@@ -16,9 +16,13 @@ namespace ImGraph {
     static const ImColor half_white{1.f, 1.f, 1.f, 0.5f};
     static const ImColor red{1.f, 0.f, 0.f, 1.f};
 
-    void DrawGrid(const ImVec2& origin, float width, float height, float mmSpacing, float cmSpacing, const ImColor& color, float thinThickness, float boldThickness);
+    //void DrawGrid(const ImVec2& origin, float width, float height, float mmSpacing, float cmSpacing, const ImColor& color, float thinThickness, float boldThickness);
+        void DrawGrid(const ImVec2& origin, float width, float height, float mmSpacing, float cmSpacing, 
+                  const ImColor& thinColor, float thinThickness, 
+                  const ImColor& boldColor, float boldThickness);
 }
 
+void RenderUI(const ImVec2& parentWindowPos);
 // #ifdef IMGRAPH_DEMO
 // void Demo_Imgraph() {
 //     // Function implementation here

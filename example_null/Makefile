@@ -10,8 +10,8 @@
 WITH_EXTRA_WARNINGS ?= 0
 WITH_FREETYPE ?= 0
 
-EXE = example_null
-IMGUI_DIR = ../..
+EXE = example_null.exe
+IMGUI_DIR = ../imgui
 SOURCES = main.cpp
 SOURCES += $(IMGUI_DIR)/imgui.cpp $(IMGUI_DIR)/imgui_demo.cpp $(IMGUI_DIR)/imgui_draw.cpp $(IMGUI_DIR)/imgui_tables.cpp $(IMGUI_DIR)/imgui_widgets.cpp
 OBJS = $(addsuffix .o, $(basename $(notdir $(SOURCES))))

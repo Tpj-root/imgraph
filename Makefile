@@ -81,4 +81,6 @@ $(EXE): $(OBJS)
 
 clean:
 	rm -f main.o main.exe imgraph.o
-
+	
+cleanall:
+	rm -f $(EXE) $(OBJS)
